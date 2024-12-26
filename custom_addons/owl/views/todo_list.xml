@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+    <!-- Tree view -->
+    <record id='owl_todo_list_view' model='ir.ui.view'>
+      <field name='name'>owl.todo.list.view</field>
+      <field name='model'>owl.todo.list</field>
+      <field name='arch' type='xml'>
+        <tree>
+          <field name='name' optional='show'/>
+          <field name='completed' optional='show'/>
+          <field name='color' widget='color' optional='show'/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Form view -->
+    <record id='owl_todo_list_form_view' model='ir.ui.view'>
+      <field name='name'>owl.todo.list.form.view</field>
+      <field name='model'>owl.todo.list</field>
+      <field name='arch' type='xml'>
+        <form>
+          <sheet>
+            <group>
+              <field name='name'/>
+              <field name='color' widget='color'/>
+              <field name='completed'/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Action -->
+    <record id='owl_todo_list_action' model="ir.actions.act_window">
+      <field name='name'>To Do List</field>
+      <field name='res_model'>owl.todo.list</field>
+      <field name='view_mode'>tree,form</field>
+    </record>
+
+    <!-- Client action -->
+    <record id="action_owl_todo_list_js" model="ir.actions.client">
+        <field name="name">To Do List Owl</field>
+        <field name="tag">owl.TodoList</field>
+        <!--<field name="params" eval="&quot;{ 'default_active_id': 'mail.box_inbox' }&quot;"/>-->
+    </record>
+
+    <!-- Menu -->
+    <menuitem name='Owl Tutorial' id='owl_todo_list_root' sequence='5'>
+      <menuitem name='To Do List' id='owl_todo_list_menu' action='owl_todo_list_action'/>
+      <menuitem name='To Do List Owl' id='owl_todo_list_menu_js'  action='action_owl_todo_list_js'/>
+    </menuitem>
+
+  </data>
+</odoo>
