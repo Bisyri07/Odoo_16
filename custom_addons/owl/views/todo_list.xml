@@ -41,7 +41,7 @@
     <!-- Client action -->
     <record id="action_owl_todo_list_js" model="ir.actions.client">
         <field name="name">To Do List Owl</field>
-        <field name="tag">owl.TodoList</field>
+        <field name="tag">owl.action_todo_list_js</field>
         <!--<field name="params" eval="&quot;{ 'default_active_id': 'mail.box_inbox' }&quot;"/>-->
     </record>
 
