@@ -5,7 +5,13 @@ const { Component, useState } = owl;
 
 export class OwlTodoList extends Component {
     setup(){
-        this.state = useState({value:1})
+        this.state = useState({
+            taskList: [
+                {id:1, name:"Task 1", color:"#ff0000", completed: true},
+                {id:2, name:"Task 2", color:"#000000", completed: false},
+                {id:3, name:"Task 3", color:"#ffffff", completed: true},
+            ]
+        })
     }
 };
 
