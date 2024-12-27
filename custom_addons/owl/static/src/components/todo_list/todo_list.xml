@@ -72,7 +72,7 @@
                 <label for="name" class="col-sm-2 col-form-label">Task Name</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="name" 
-                  t-model="state.task.name" t-att-value="state.task.name"/>
+                  t-model="state.task.name"/>
                 </div>
               </div>
 
@@ -80,7 +80,7 @@
                 <label for="color" class="col-sm-2 col-form-label">Color</label>
                 <div class="col-sm-10">
                   <input type="color" class="form-control form-control-color" id="color" 
-                  t-model="state.task.color" t-att-value="state.task.color" title="Choose your color"/>
+                  t-model="state.task.color" title="Choose your color"/>
                 </div>
               </div>   
 
@@ -88,7 +88,7 @@
                 <label for="completed" class="col-sm-2 col-form-label">Completed</label>
                 <div class="col-sm-10">
                   <input class="form-check-input" type="checkbox" t-model="state.task.completed" 
-                  t-att-checked="state.task.completed" id="completed"/>
+                   id="completed"/>
                 </div>
               </div>    
           </div>
