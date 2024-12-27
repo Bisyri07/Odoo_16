@@ -38,11 +38,9 @@ export class OwlTodoList extends Component {
     };
 
     async saveTask(){
-        await this.orm.create(this.model, [{
-            name: this.state.task.name, 
-            color: this.state.task.color, 
-            completed: this.state.task.completed
-        }])
+        await this.orm.create(this.model, [this.state.task])
+
+        await this.getAllTask()
     }
 
 };
