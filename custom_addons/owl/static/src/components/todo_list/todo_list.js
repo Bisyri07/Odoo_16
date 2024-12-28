@@ -30,7 +30,9 @@ export class OwlTodoList extends Component {
     };
 
     addTask(){
-
+        this.resetForm()
+        this.state.activeId = false
+        this.state.isEdit = false
     };
 
     editTask(task){
@@ -62,6 +64,10 @@ export class OwlTodoList extends Component {
             document.body.classList.remove('modal-open');
             document.querySelector('.modal-backdrop').remove();
         }
+    };
+
+    resetForm(){
+        this.state.task = {name:'', completed:false, color:'#ff0000'}
     };
 
 };
