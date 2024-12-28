@@ -5,7 +5,9 @@
 
       <div class="row mx-2 mt-3">
         <div class="col-lg-6">
-          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">New</button>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" t-on-click="addTask">
+            New
+          </button>
         </div>
 
         <div class="col-lg-6">
