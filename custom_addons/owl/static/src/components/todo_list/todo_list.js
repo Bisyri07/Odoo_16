@@ -73,16 +73,20 @@ export class OwlTodoList extends Component {
 
     async deleteTask(task){
                            //(model, ids, kwargs = {})
-        await this.orm.unlink(this.model, [task.id])
+        await this.orm.unlink(this.model, [task.id]);
         await this.getAllTask();
     };
 
     async searchTask(){
-        const text = this.searchInput.el.value
-        console.log('Text object', text)
+        const text = this.searchInput.el.value;
         this.state.taskList = await this.orm.searchRead(
             this.model, [['name', 'ilike', text]], ['name', 'completed', 'color']
         ) 
+    };
+
+    async toggleTask(e, task){
+        await this.orm.write(this.model, [task.id], {completed: e.target.checked});
+        await this.getAllTask();
     };
 
 };
