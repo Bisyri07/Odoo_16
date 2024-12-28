@@ -27,8 +27,8 @@
             <thead>
               <tr>
                 <th scope="col">Task Description</th>
-                <th scope="col">Completed</th>
-                <th scope="col"> </th>
+                <th scope="col">Color</th>
+                <th scope="col">Edit/Delete</th>
               </tr>
             </thead>
             <tbody>
@@ -45,7 +45,8 @@
                 </td>
                 <td>
                   <input type="color" class="form-control form-control-color" 
-                    id="exampleColorInput" t-att-value="task.color" title="Choose your color"/>
+                  id="exampleColorInput" t-att-value="task.color" 
+                  title="Choose your color" t-on-change="(e)=>this.updateColor(e, task)"/>
                 </td>
                 <td>
                   <button class="btn btn-success me-2" data-bs-toggle="modal" 

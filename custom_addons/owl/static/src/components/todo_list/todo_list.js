@@ -88,6 +88,11 @@ export class OwlTodoList extends Component {
         await this.orm.write(this.model, [task.id], {completed: e.target.checked});
         await this.getAllTask();
     };
+    
+    async updateColor(e, task){
+        await this.orm.write(this.model, [task.id], {color: e.target.value});
+        await this.getAllTask();
+    };
 
 };
 
