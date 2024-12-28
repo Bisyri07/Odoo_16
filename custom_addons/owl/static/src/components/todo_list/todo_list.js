@@ -1,7 +1,7 @@
 /** @odoo-module **/
 
 import { registry } from '@web/core/registry';
-const { Component, useState, onWillStart } = owl;
+const { Component, useState, onWillStart, useRef } = owl;
 import { useService } from '@web/core/utils/hooks';
 
 
@@ -19,6 +19,7 @@ export class OwlTodoList extends Component {
 
         this.orm = useService('orm');
         this.model = 'owl.todo.list';
+        this.searchInput = useRef('search-input');
 
         onWillStart(async ()=> {
             await this.getAllTask()
@@ -74,6 +75,14 @@ export class OwlTodoList extends Component {
                            //(model, ids, kwargs = {})
         await this.orm.unlink(this.model, [task.id])
         await this.getAllTask();
+    };
+
+    async searchTask(){
+        const text = this.searchInput.el.value
+        console.log('Text object', text)
+        this.state.taskList = await this.orm.searchRead(
+            this.model, [['name', 'ilike', text]], ['name', 'completed', 'color']
+        ) 
     };
 
 };
