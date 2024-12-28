@@ -17,8 +17,8 @@ export class OwlTodoList extends Component {
             activeId: false,
         })
 
-        this.orm = useService('orm')
-        this.model = 'owl.todo.list'
+        this.orm = useService('orm');
+        this.model = 'owl.todo.list';
 
         onWillStart(async ()=> {
             await this.getAllTask()
@@ -68,6 +68,12 @@ export class OwlTodoList extends Component {
 
     resetForm(){
         this.state.task = {name:'', completed:false, color:'#ff0000'}
+    };
+
+    async deleteTask(task){
+                           //(model, ids, kwargs = {})
+        await this.orm.unlink(this.model, [task.id])
+        await this.getAllTask();
     };
 
 };
