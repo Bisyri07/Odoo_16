@@ -33,15 +33,36 @@ export class OwlTodoList extends Component {
 
     };
 
-    editTask(){
-
+    editTask(task){
+        this.state.activeId = task.id
+        this.state.isEdit = true
+        this.state.task = {...task}
     };
 
     async saveTask(){
-        await this.orm.create(this.model, [this.state.task])
+        // create
+        if(!this.state.isEdit){
+                               //(model, records, kwargs = {})
+            await this.orm.create(this.model, [this.state.task]);
+        }
+        // edit
+        else{
+                              //(model, ids, data, kwargs = {})
+            await this.orm.write(this.model, [this.state.activeId], this.state.task);
+        }
 
-        await this.getAllTask()
-    }
+        // refresh the task list
+        await this.getAllTask();
+
+        // Close the modal using plain JavaScript
+        const modalElement = document.getElementById('exampleModal');
+        if (modalElement){
+            modalElement.classList.remove('show');
+            modalElement.style.display = 'none'; 
+            document.body.classList.remove('modal-open');
+            document.querySelector('.modal-backdrop').remove();
+        }
+    };
 
 };
 
