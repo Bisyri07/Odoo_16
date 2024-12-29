@@ -20,6 +20,7 @@
 
         # views
         'views/todo_list.xml',
+        'views/res_partner.xml',
 
     },
 
