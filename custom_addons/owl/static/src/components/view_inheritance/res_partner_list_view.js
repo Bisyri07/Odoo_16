@@ -15,12 +15,22 @@ class resPartnerListController extends ListController {
 
     openSalesView(){
         console.log("open sales view works!")
-        // Open a Form View
+        // Open a default tree view
         this.action.doAction({
             type: "ir.actions.act_window",
-            name: "Customer Sales",
+            name: "Sales Order",
             res_model: "sale.order",
             views: [[false, "list"], [false, "form"]],    
+        })
+    }
+
+    openInvoicesView(){
+        this.action.doAction({
+            type: "ir.actions.act_window",
+            name: "Invoices",
+            res_model: "sale.order",
+            domain: [["invoice_status", "=", "to invoice"]],
+            views: [[false, "list"], [false, "form"], [false, "kanban"]],    
         })
     }
 

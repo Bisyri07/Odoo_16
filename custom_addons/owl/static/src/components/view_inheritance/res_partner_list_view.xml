@@ -3,7 +3,7 @@
   <t t-name="owl.ResPartnerListView.Button" t-inherit="web.ListView.Buttons" owl="1">
     <xpath expr="//t[contains(@t-if, 'isExportEnable')]" position="before">
       <button class="btn btn-primary ms-2" t-on-click="openSalesView">View Sales Orders</button>
-      <button class="btn btn-secondary border ms-2">View Invoices</button>
+      <button class="btn btn-secondary border ms-2" t-on-click="openInvoicesView">View Invoices</button>
       <button class="btn btn-success ms-2">View Meetings</button>
     </xpath>
   </t>
