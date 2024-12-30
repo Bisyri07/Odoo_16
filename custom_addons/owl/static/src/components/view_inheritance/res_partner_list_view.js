@@ -30,7 +30,19 @@ class resPartnerListController extends ListController {
             name: "Invoices",
             res_model: "sale.order",
             domain: [["invoice_status", "=", "to invoice"]],
-            views: [[false, "list"], [false, "form"], [false, "kanban"]],    
+            views: [
+                [false, "list"], [false, "form"], [false, "kanban"], 
+                [false, "calendar"], [false, "pivot"]
+            ],    
+        })
+    }
+
+    openMeetingView(){
+        this.action.doAction({
+            name: "Meetings",
+            type: "ir.actions.act_window",
+            res_model: "calendar.event",
+            views: [[false, "list"], [false, "calendar"]]
         })
     }
 
