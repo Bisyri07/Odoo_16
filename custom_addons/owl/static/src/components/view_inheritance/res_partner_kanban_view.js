@@ -1,20 +1,19 @@
 /* @odoo-module */ 
 
 import { registry } from '@web/core/registry';
-import { listView } from '@web/views/list/list_view';
-import { ListController } from '@web/views/list/list_controller';
+import { kanbanView } from '@web/views/kanban/kanban_view';
+import { KanbanController } from '@web/views/kanban/kanban_controller';
 import { useService } from '@web/core/utils/hooks';
 
 
-class ResPartnerListController extends ListController {
+class ResPartnerKanbanController extends KanbanController {
     setup(){
         super.setup()
-        console.log("This is res partner controller")
+        console.log("This is res partner kanban controller")
         this.action = useService("action")
     }
 
     openSalesView(){
-        console.log("open sales view works!")
         // Open a default tree view
         this.action.doAction({
             type: "ir.actions.act_window",
@@ -45,14 +44,14 @@ class ResPartnerListController extends ListController {
             views: [[false, "list"], [false, "calendar"]]
         })
     }
-
-};
-
-export const resPartnerListView = {
-    ...listView,
-    Controller: ResPartnerListController,
-    buttonTemplate: "owl.ResPartnerListView.Button",
 };
 
 
-registry.category("views").add("res_partner_list_view", resPartnerListView);
+export const resPartnerKanbanView = {
+    ...kanbanView,
+    Controller: ResPartnerKanbanController,
+    buttonTemplate: "owl.ResPartnerKanbanView.Button",
+};
+
+
+registry.category("views").add("res_partner_kanban_view", resPartnerKanbanView);
