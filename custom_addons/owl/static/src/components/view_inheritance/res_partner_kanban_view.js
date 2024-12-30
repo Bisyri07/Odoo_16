@@ -55,6 +55,19 @@ class ResPartnerKanbanController extends KanbanController {
             views: [[false, "list"], [false, "calendar"]]
         })
     }
+
+    selectLocations(state){
+        const id = state[0]
+        const name = state[1]
+
+        this.env.searchModel.setDomainParts({
+            state: {
+                domain: [['state_id', '=', id]],
+                facetLabel: name,
+            }
+        })
+    }
+
 };
 
 
