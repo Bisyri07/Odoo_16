@@ -64,5 +64,6 @@ export const resPartnerKanbanView = {
     buttonTemplate: "owl.ResPartnerKanbanView.Button",
 };
 
+ResPartnerKanbanController.template = "owl.ResPartnerKanbanView";
 
 registry.category("views").add("res_partner_kanban_view", resPartnerKanbanView);

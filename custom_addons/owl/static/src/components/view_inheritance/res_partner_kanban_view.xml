@@ -7,4 +7,16 @@
       <button class="btn btn-success ms-2" t-on-click="openMeetingView">View Meetings</button>
     </xpath>
   </t>
+
+  <t t-name="owl.ResPartnerKanbanView" t-inherit="web.KanbanView" owl="1">
+    <xpath expr="//t[contains(@t-component, 'props.Renderer')]" position="before">
+      <div class="ms-2">
+        <h2 class="mx-2 mt-3">Customer Locations</h2>
+      </div>
+    </xpath>
+    <xpath expr="//Layout" position="attributes">
+      <attribute name="className">model.useSampleModel ? 'o_view_sample_data' : '' + "d-flex"</attribute>
+    </xpath>
+  </t>
+
 </templates>
