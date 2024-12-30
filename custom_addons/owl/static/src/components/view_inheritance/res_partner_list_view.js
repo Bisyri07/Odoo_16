@@ -15,6 +15,8 @@ class resPartnerListController extends ListController {
 export const resPartnerListView = {
     ...listView,
     Controller: resPartnerListController,
+    buttonTemplate: "owl.ResPartnerListView.Button",
 };
+
 
 registry.category("views").add("res_partner_list_view", resPartnerListView);
