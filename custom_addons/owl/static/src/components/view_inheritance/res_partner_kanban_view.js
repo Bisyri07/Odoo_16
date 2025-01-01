@@ -60,6 +60,9 @@ class ResPartnerKanbanController extends KanbanController {
         const id = state[0]
         const name = state[1]
 
+        // console.log("id", id)
+        // console.log("location name", name)
+        
         this.env.searchModel.setDomainParts({
             state: {
                 domain: [['state_id', '=', id]],
